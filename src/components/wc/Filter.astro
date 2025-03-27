@@ -1,0 +1,52 @@
+---
+import Button from "./Button.astro";
+
+type Props = {
+  endpoint: string;
+};
+
+const { endpoint } = Astro.props;
+---
+
+<enhanced-filter>
+  <form action={endpoint} method="GET">
+    <div>
+      <div>
+        <label for="search">Search</label>
+        <input type="search" name="search" />
+      </div>
+
+      <div>
+        <Button type="submit">Filter</Button>
+      </div>
+    </div>
+
+    <output>
+      <slot />
+    </output>
+  </form>
+</enhanced-filter>
+
+<script>
+  class EnhancedFilter extends HTMLElement {
+    _internals: ElementInternals;
+    filterElement: HTMLFormElement;
+
+    constructor() {
+      super();
+      this._internals = this.attachInternals();
+    }
+
+    connectedCallback() {
+      this.filterElement = this.querySelector("form")!;
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      console.log(
+        `Attribute ${name} has changed from ${oldValue} to ${newValue}.`,
+      );
+    }
+  }
+
+  customElements.define("enhanced-filter", EnhancedFilter);
+</script>

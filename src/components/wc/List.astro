@@ -1,0 +1,27 @@
+---
+
+type Props = {
+  data: Record<string, string>[];
+}
+const { data } = Astro.props;
+---
+
+<enhanced-list>
+  <ul>
+    {data.map((item) => (
+      <li>
+        {item.title}
+      </li>
+    ))}
+  </ul>
+</enhanced-list>
+
+<script>
+  class EnhancedList extends HTMLElement {
+    constructor() {
+      super();
+    }
+  }
+
+  customElements.define("enhanced-list", EnhancedList);
+</script>

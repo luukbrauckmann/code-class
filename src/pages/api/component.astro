@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+
+const { query } = Astro.request;
+
+const Component = (await import(`../${blockName}/${blockName}.astro`)).default;
+---
+
+<Component {...props} />

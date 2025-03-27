@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { EnhancedButton } from "./Button"
+
+export type Props = HTMLAttributes<"button">;
+
+const button = new EnhancedButton();
+const { ...props } = Astro.props;
+---
+
+<enhanced-button>
+  <template shadowrootmode="open">
+    <Fragment set:html={button.render(props)} />
+  </template>
+</enhanced-button>
+
+<script src="./Button" />

@@ -9,6 +9,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.3"
+    "@astrojs/cloudflare": "^12.3.1",
+    "@astrojs/react": "^4.2.1",
+    "@astropub/webapi": "^0.10.14",
+    "@webcomponents/template-shadowroot": "^0.1.0",
+    "astro": "^5.5.3",
+    "custom-elements-ssr": "^0.0.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "web-component-base": "^4.0.1"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@webcomponents/webcomponentsjs": "^2.8.0"
   }
 }
